@@ -34,6 +34,7 @@ fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 # display fruit advice as a table
 sl.dataframe(fruityvice_normalized)
 
+
 import snowflake.connector
 
 my_cnx = snowflake.connector.connect(**sl.secrets["snowflake"])
@@ -42,3 +43,6 @@ my_cur.execute("SELECT * from fruit_load_list")
 my_data_rows = my_cur.fetchall()
 sl.header("The fruit load list contains:")
 sl.dataframe(my_data_rows)
+
+add_my_fruit = sl.textinpu("What fruit would you like to add?")
+sl.text('Thanks for adding' + add_my_fruit)
