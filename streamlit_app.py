@@ -22,6 +22,13 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 sl.dataframe(fruits_to_show)
 
 
+sl.header('Fruityvice Fruit Advice!')
+
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 sl.text(fruityvice_response.json())
+
+# convert from semi-structured to structured
+fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+# display fruit advice as a table
+sl.dataframe(fruityvice_normalized)
