@@ -26,7 +26,6 @@ sl.header('Fruityvice Fruit Advice!')
 
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-sl.text(fruityvice_response.json())
 
 # convert from semi-structured to structured
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
