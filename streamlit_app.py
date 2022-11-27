@@ -44,5 +44,5 @@ my_data_rows = my_cur.fetchall()
 sl.header("The fruit load list contains:")
 sl.dataframe(my_data_rows)
 
-add_my_fruit = sl.textinpu("What fruit would you like to add?")
+add_my_fruit = sl.textinput("What fruit would you like to add?")
 sl.text('Thanks for adding' + add_my_fruit)
